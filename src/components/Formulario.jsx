@@ -1,26 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Swal from "sweetalert2";
 import "../App.css"; // CSS con animaciones y estrellas
 
 export default function Formulario() {
   const [formData, setFormData] = useState({ nombre: "", cantidad: "" });
-  const [confirmaciones, setConfirmaciones] = useState([]);
   const [stars, setStars] = useState([]);
 
-  // Obtener confirmaciones al montar
-  useEffect(() => {
-    fetchConfirmaciones();
-  }, []);
-
-  const fetchConfirmaciones = async () => {
-    try {
-      const res = await fetch("https://backend-dante.onrender.com/api/confirmaciones");
-      const data = await res.json();
-      setConfirmaciones(data);
-    } catch (error) {
-      console.error("Error al obtener confirmaciones:", error);
-    }
-  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,7 +36,6 @@ const handleSubmit = async (e) => {
         // 🎆 Fuegos artificiales se disparan al cerrar
         triggerStars();
         setFormData({ nombre: "", cantidad: "" });
-        fetchConfirmaciones(); // actualizar lista
       });
     } else {
       Swal.fire({
