@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../App.css"; // CSS con animaciones y estrellas
 
-export default function Confirmacion() {
+export default function Formulario() {
   const [formData, setFormData] = useState({ nombre: "", cantidad: "" });
   const [confirmaciones, setConfirmaciones] = useState([]);
   const [stars, setStars] = useState([]);

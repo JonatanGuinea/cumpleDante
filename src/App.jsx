@@ -2,8 +2,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tarjeta from "./components/Tarjeta";
-import Confirmacion from "./components/Confirmacion";
-import ConfirmacionesPrivadas from "./components/ConfirmacionesPrivadas";
+import Formulario from "./components/Formulario";
 import "./App.css";
 
 function App() {
@@ -14,21 +13,17 @@ function App() {
           <img src="/img/animales/header-animals.png" alt="" className="header-img" />
         <Routes>
           {/* Ruta pública */}
-          <Route
-            path="/"
-            element={
-              <>
-              <div className="container">
-                <Tarjeta />
-                <Confirmacion />
-              
-              </div>
-              </>
-            }
-          />
-
-          {/* Ruta privada para ver confirmaciones */}
-          <Route path="/confirmaciones" element={<ConfirmacionesPrivadas />} />
+              <Route
+                path="/" element={
+                  <>
+                  <div className="container">
+                    <Tarjeta />
+                    <Formulario />
+                  
+                  </div>
+                  </>
+                }
+              />
         </Routes>
     </Router>
   );
